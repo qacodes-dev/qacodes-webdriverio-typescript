@@ -19,7 +19,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "^22.10.2",
+    "@types/node": "^26.1.0",
     "@wdio/allure-reporter": "^9.4.5",
     "@wdio/cli": "^9.4.5",
     "@wdio/globals": "^9.4.5",
@@ -27,9 +27,9 @@
     "@wdio/mocha-framework": "^9.4.5",
     "@wdio/spec-reporter": "^9.4.5",
     "allure-commandline": "^2.32.0",
-    "dotenv": "^16.4.7",
+    "dotenv": "^17.4.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.2",
+    "typescript": "^6.0.3",
     "webdriverio": "^9.4.5"
   }
 }
