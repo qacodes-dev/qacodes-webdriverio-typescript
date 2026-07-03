@@ -1,0 +1,47 @@
+name: WDIO E2E
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  e2e:
+    name: Headless Chrome
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Run WDIO suite (headless)
+        env:
+          HEADLESS: 'true'
+          BASE_URL: ${{ secrets.BASE_URL || 'https://www.saucedemo.com' }}
+          TEST_USER_USERNAME: ${{ secrets.TEST_USER_USERNAME || 'standard_user' }}
+          TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD || 'secret_sauce' }}
+        run: npx wdio run wdio.conf.ts
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
+          if-no-files-found: warn
+          retention-days: 7

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "webdriverio",
+      "@wdio/globals/types",
+      "@wdio/mocha-framework",
+      "expect-webdriverio"
+    ]
+  },
+  "include": [
+    "wdio.conf.ts",
+    "test/**/*.ts"
+  ]
+}

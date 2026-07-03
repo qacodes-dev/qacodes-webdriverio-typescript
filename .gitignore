@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# WebdriverIO / Allure artifacts
+allure-results/
+allure-report/
+.allure/
+logs/
+*.log
+npm-debug.log*
+
+# Screenshots captured on failure
+errorShots/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
